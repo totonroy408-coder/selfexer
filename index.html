@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exertion - Instant Pain Relief Help</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1em;
+    }
+
+    .search-section {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+      border: 2px solid #0077b6;
+      border-radius: 25px;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #0077b6;
+      border: none;
+      color: white;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background: #023e8a;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      margin: 15px;
+      width: 300px;
+      text-align: center;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+    }
+
+    .card p {
+      padding: 0 15px;
+      color: #555;
+      font-size: 0.95em;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      input[type="text"] {
+        width: 80%;
+      }
+    }
+  </style>
+
+  <script>
+    // Search function
+    function searchPain() {
+      const input = document.getElementById("searchBox").value.toLowerCase();
+      const cards = document.getElementsByClassName("card");
+      for (let card of cards) {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      }
+    }
+
+    // Read more / less toggle
+    function toggleReadMore(id) {
+      const dots = document.getElementById("dots" + id);
+      const moreText = document.getElementById("more" + id);
+      const btnText = document.getElementById("btn" + id);
+
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more";
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less";
+        moreText.style.display = "inline";
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>SELF-EXERTION</h1>
+    <p>Instant Help for Your Body Pain Problems</p>
+  </header>
+
+  <div class="search-section">
+    <input type="text" id="searchBox" placeholder="Search your pain (e.g. Head pain, Chest pain...)" onkeyup="searchPain()">
+    <button onclick="searchPain()">Search</button>
+  </div>
+
+  <div class="container">
+    <!-- 1. Head Pain -->
+    <div class="card">
+      <img src="https://regionalneurological.com/wp-content/uploads/2019/08/AdobeStock_244803452.jpeg">
+      <h3>Head Pain</h3>
+      <p>🧠 Quick Solution<span id="dots1">...</span><span id="more1" class="hidden"> Drink water, rest in a dark room, and apply a cool compress. Avoid loud noise. If persistent, consult a doctor.</span></p>
+      <button id="btn1" onclick="toggleReadMore(1)">Read more</button>
+    </div>
+
+    <!-- 2. Chest Pain -->
+    <div class="card">
+      <img src="https://www.heartspecialistpune.com/wp-content/uploads/2021/10/what-causes-chest-pain.jpg">
+      <h3>Chest Pain</h3>
+      <p>❤️ Quick Solution<span id="dots2">...</span><span id="more2" class="hidden"> Sit upright, relax, and breathe slowly. Avoid exertion. If pain radiates or is severe, seek emergency help immediately.</span></p>
+      <button id="btn2" onclick="toggleReadMore(2)">Read more</button>
+    </div>
+
+    <!-- 3. Leg Pain -->
+    <div class="card">
+      <img src="https://njvvc.com/wp-content/uploads/2022/04/Leg-Pain.jpg">
+      <h3>Leg Pain</h3>
+      <p>🦵 Quick Solution<span id="dots3">...</span><span id="more3" class="hidden"> Stretch gently, massage muscles, apply warm compress, and drink water. Rest if caused by strain.</span></p>
+      <button id="btn3" onclick="toggleReadMore(3)">Read more</button>
+    </div>
+
+    <!-- 4. Back Pain -->
+    <div class="card">
+      <img src="https://www.treatingpain.com/images/blog/BackNeck1_-scaled.jpg">
+      <h3>Back Pain</h3>
+      <p>🦴 Quick Solution<span id="dots4">...</span><span id="more4" class="hidden"> Maintain posture, stretch slowly, apply ice or heat packs. Avoid heavy lifting.</span></p>
+      <button id="btn4" onclick="toggleReadMore(4)">Read more</button>
+    </div>
+
+    <!-- 5. Shoulder Pain -->
+    <div class="card">
+      <img src="https://posm.org/wp-content/uploads/2023/11/POSM-Nov-15-1024x576.png">
+      <h3>Shoulder Pain</h3>
+      <p>💪 Quick Solution<span id="dots5">...</span><span id="more5" class="hidden"> Stretch gently, apply ice, and rest the shoulder. Avoid overhead movement for a while.</span></p>
+      <button id="btn5" onclick="toggleReadMore(5)">Read more</button>
+    </div>
+
+    <!-- 6. Stomach Pain -->
+    <div class="card">
+      <img src="https://sydneygutclinic.com/wp-content/uploads/2024/11/Untitled-design-67.jpg">
+      <h3>Stomach Pain</h3>
+      <p>🍽️ Quick Solution<span id="dots6">...</span><span id="more6" class="hidden"> Drink warm water, avoid spicy food, and rest. If severe, try mild antacid or consult doctor.</span></p>
+      <button id="btn6" onclick="toggleReadMore(6)">Read more</button>
+    </div>
+
+    <!-- 7. Eye Pain -->
+    <div class="card">
+      <img src="https://parkslopeeye.com/wp-content/uploads/2022/02/teenage-boy-with-eye-pain.jpg">
+      <h3>Eye Pain</h3>
+      <p>👁️ Quick Solution<span id="dots7">...</span><span id="more7" class="hidden"> Rest your eyes, avoid screens, and wash gently with water. Apply cold compress if needed.</span></p>
+      <button id="btn7" onclick="toggleReadMore(7)">Read more</button>
+    </div>
+
+    <!-- 8. Neck Pain -->
+    <div class="card">
+      <img src="https://texasback.com/wp-content/uploads/2024/11/8-Common-Causes-Neck-Pain-Dr-Kosztowski-Blog-August-28-2018-Texas-Back-Institute.webp">
+      <h3>Neck Pain</h3>
+      <p>🧍 Quick Solution<span id="dots8">...</span><span id="more8" class="hidden"> Gently stretch neck, apply heat pad, and maintain good posture when using phones or laptops.</span></p>
+      <button id="btn8" onclick="toggleReadMore(8)">Read more</button>
+    </div>
+
+    <!-- 9. Ear Pain -->
+    <div class="card">
+      <img src="https://www.goldmedicalcentre.co.uk/wp-content/uploads/2022/05/ear-pain.jpg">
+      <h3>Ear Pain</h3>
+      <p>👂 Quick Solution<span id="dots9">...</span><span id="more9" class="hidden"> Apply warm cloth, avoid inserting anything into ear, and see doctor if pain persists.</span></p>
+      <button id="btn9" onclick="toggleReadMore(9)">Read more</button>
+    </div>
+
+    <!-- 10. Tooth Pain -->
+    <div class="card">
+      <img src="https://www.frederickcenterfordentistry.com/wp-content/uploads/2023/05/5-Causes-of-Tooth-Pain-scaled.jpeg">
+      <h3>Tooth Pain</h3>
+      <p>🦷 Quick Solution<span id="dots10">...</span><span id="more10" class="hidden"> Rinse mouth with warm salt water, apply clove oil, and avoid very hot or cold food.</span></p>
+      <button id="btn10" onclick="toggleReadMore(10)">Read more</button>
+    </div>
+
+    <!-- 11. Bone Pain -->
+    <div class="card">
+      <img src="https://static.wixstatic.com/media/5f378b_8af67374084b48cb9bc96c932c67b9f0~mv2.jpg/v1/fill/w_568,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/5f378b_8af67374084b48cb9bc96c932c67b9f0~mv2.jpg">
+      <h3>Bone Pain</h3>
+      <p>🦴 Quick Solution<span id="dots11">...</span><span id="more11" class="hidden"> Rest affected area, use ice packs, and avoid pressure until checked by doctor.</span></p>
+      <button id="btn11" onclick="toggleReadMore(11)">Read more</button>
+    </div>
+
+    <!-- 12. Arm Pain -->
+    <div class="card">
+      <img src="https://image.tuasaude.com/media/article/na/ou/causes-for-right-arm-pain_36633.jpg">
+      <h3>Arm Pain</h3>
+      <p>💪 Quick Solution<span id="dots12">...</span><span id="more12" class="hidden"> Stretch arm slowly, rest it, and use a warm compress. Avoid repetitive strain.</span></p>
+      <button id="btn12" onclick="toggleReadMore(12)">Read more</button>
+    </div>
+
+    <!-- 13. Wrist Pain -->
+    <div class="card">
+      <img src="https://emirateshospitals.ae/wp-content/uploads/2025/02/shutterstock_2490041717-scaled.jpg">
+      <h3>Wrist Pain</h3>
+      <p>✋ Quick Solution<span id="dots13">...</span><span id="more13" class="hidden"> Rest wrist, apply ice, and avoid typing or twisting for a few hours.</span></p>
+      <button id="btn13" onclick="toggleReadMore(13)">Read more</button>
+    </div>
+
+    <!-- 14. Ankle Pain -->
+    <div class="card">
+      <img src="https://balancehealth.com/wp-content/uploads/sore-ankle-pain-foot-woman-sprain-feet-heel-knee-sore-people.jpg">
+      <h3>Ankle Pain</h3>
+      <p>🦶 Quick Solution<span id="dots14">...</span><span id="more14" class="hidden"> Rest the ankle, apply ice, and keep it elevated. Wrap it gently if swollen.</span></p>
+      <button id="btn14" onclick="toggleReadMore(14)">Read more</button>
+    </div>
+
+    <!-- 15. Knee Pain -->
+    <div class="card">
+      <img src="https://alleviatepainclinic.com/wp-content/uploads/2023/08/Blog17.jpg">
+      <h3>Knee Pain</h3>
+      <p>🦵 Quick Solution<span id="dots15">...</span><span id="more15" class="hidden"> Avoid stairs, apply ice, wear supportive shoes, and rest your knee.</span></p>
+      <button id="btn15" onclick="toggleReadMore(15)">Read more</button>
+    </div>
+
+    <!-- 16. Joint Pain -->
+    <div class="card">
+      <img src="https://ppschicago.com/wp-content/uploads/2023/11/The-Best-Pain-Management-Treatment-in-Long-Beach-NY.jpg">
+      <h3>Joint Pain</h3>
+      <p>🦿 Quick Solution<span id="dots16">...</span><span id="more16" class="hidden"> Stay active with light exercise, use warm compress, and keep joints flexible.</span></p>
+      <button id="btn16" onclick="toggleReadMore(16)">Read more</button>
+    </div>
+
+    <!-- 17. Throat Pain -->
+    <div class="card">
+      <img src="https://virginiaent.com/wp-content/uploads/2025/02/VAENT-What-Causes-a-Sore-Throat-That-Wont-Go-Away-Blog.png">
+      <h3>Throat Pain</h3>
+      <p>🗣️ Quick Solution<span id="dots17">...</span><span id="more17" class="hidden"> Gargle warm salt water, drink honey lemon tea, and avoid cold drinks.</span></p>
+      <button id="btn17" onclick="toggleReadMore(17)">Read more</button>
+    </div>
+
+    <!-- 18. Cold & Flu -->
+    <div class="card">
+      <img src="https://www.healthcarehighways.com/hubfs/Blog%20Images%20from%20Adobe.png">
+      <h3>Cold & Flu</h3>
+      <p>🤧 Quick Solution<span id="dots18">...</span><span id="more18" class="hidden"> Drink plenty of fluids, rest, inhale steam, and keep warm.</span></p>
+      <button id="btn18" onclick="toggleReadMore(18)">Read more</button>
+    </div>
+
+    <!-- 19. Fatigue -->
+    <div class="card">
+      <img src="https://drkunalbahrani.com/wp-content/uploads/2025/08/Chronic-Fatigue-Syndrome-scaled.jpg">
+      <h3>Fatigue</h3>
+      <p>😴 Quick Solution<span id="dots19">...</span><span id="more19" class="hidden"> Sleep well, stay hydrated, and eat nutritious food. Avoid overworking.</span></p>
+      <button id="btn19" onclick="toggleReadMore(19)">Read more</button>
+    </div>
+
+    <!-- 20. Stress -->
+    <div class="card">
+      <img src="https://www.iowaclinic.com/Content/cms/images/news/stress_side_effects_800X533.jpg">
+      <h3>Stress</h3>
+      <p>🧘 Quick Solution<span id="dots20">...</span><span id="more20" class="hidden"> Take deep breaths, meditate, listen to calm music, and get enough rest.</span></p>
+      <button id="btn20" onclick="toggleReadMore(20)">Read more</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; SELF-EXERTION | Helping You Feel Better Instantly 💙</p>
+  </footer>
+
+</body>
+</html>
